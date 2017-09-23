@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+const passport = require('./../app/libs/passport')
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -26,9 +27,7 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
-
-  var passport = require(config.root +'/app/auth/passport');
-  passport.init();
+  app.use(passport.initialize());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {

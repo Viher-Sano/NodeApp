@@ -9,7 +9,7 @@ var config = {
       name: 'nodetest'
     },
     port: process.env.PORT || 3000,
-    db: 'mysql://root:root@localhost/test'
+    db: 'mysql://root:12345@localhost/test'
   },
 
   test: {
