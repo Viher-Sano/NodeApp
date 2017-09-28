@@ -14,7 +14,7 @@ function fromHeader(header) {
 };
 passport.use(new Strategy({
     secretOrKey: config.get('jwtSecret'),
-    jwtFromRequest: fromHeader('authorization')
+    jwtFromRequest: fromHeader('token')
 }, (jwtPayload, done) => {
     db.users.findById(jwtPayload.id)
         .then((user) => {

@@ -4,9 +4,27 @@
 module.exports = function (sequelize, DataTypes) {
 
   var Article = sequelize.define('Article', {
-    title: DataTypes.STRING,
-    url: DataTypes.STRING,
-    text: DataTypes.STRING
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    }
   }, {
     classMethods: {
       associate: function (models) {

@@ -49,7 +49,8 @@ module.exports = function (sequelize, DataTypes) {
           },
           isPassword: (password, cryptedPass) => {
               return bcrypt.compareSync(password, cryptedPass);
-          }
+          },
+          publicFields: ["id","email", "firstName", "lastName", "avatar", "roleId", "createdAt", "updatedAt"]
         }
       });
     

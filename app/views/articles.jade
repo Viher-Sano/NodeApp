@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .container
+    .row
+      .col-md-12
+        table.table.table-striped
+          head
+            tr
+              th Title
+              th Url
+              th Text
+          body
+            each article in articles
+              tr
+                th #{article.title}
+                th #{article.url}
+                th #{article.text}
